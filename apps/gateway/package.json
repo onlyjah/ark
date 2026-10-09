@@ -1,0 +1,13 @@
+{
+  "name": "@ark/gateway",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "bun src/index.ts"
+  },
+  "dependencies": {
+    "hono": "4.13.13",
+    "@clerk/backend": "3.23.1"
+  }
+}

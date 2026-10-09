@@ -1,0 +1,66 @@
+{
+  "formatVersion": 1,
+  "status": "planned-additive-services-not-applied",
+  "projectId": "29c6b365-6d5d-4eaa-9464-fde7f3182be8",
+  "environmentId": "7e3a5a42-4351-44e8-960d-007f3071b031",
+  "services": [
+    {
+      "name": "ark-core",
+      "kind": "function",
+      "runtime": "bun",
+      "source": "railway/ark-core.function.ts",
+      "existingServiceId": "fb8f559e-cadd-4555-a59a-0c8e045089af",
+      "database": "sqlite-existing-do-not-remove"
+    },
+    {
+      "name": "ark-gateway",
+      "kind": "function",
+      "runtime": "bun",
+      "source": "railway/ark-gateway.function.ts",
+      "dependsOn": [
+        "ark-postgres"
+      ],
+      "activationRequires": [
+        "Clerk reauthentication and exact issuer/authorized parties",
+        "client registrations and consent UI",
+        "migration verification"
+      ]
+    },
+    {
+      "name": "ark-postgres",
+      "kind": "database",
+      "engine": "postgresql",
+      "migrations": [
+        "migrations/001-platform.sql"
+      ],
+      "activationRequires": [
+        "verified migration and restore plan"
+      ]
+    }
+  ],
+  "clients": [
+    {
+      "clientId": "onlyjah",
+      "origin": "https://onlyjah.com",
+      "basePath": "/ark",
+      "schemaVersion": 1,
+      "auth": {
+        "primaryOrigin": "https://onlyjah.com",
+        "satellite": false
+      },
+      "uiVersion": "0.1.0"
+    },
+    {
+      "clientId": "jahnoah",
+      "origin": "https://jahnoah.com",
+      "basePath": "/ark",
+      "schemaVersion": 1,
+      "auth": {
+        "primaryOrigin": "https://onlyjah.com",
+        "satellite": true
+      },
+      "uiVersion": "0.1.0"
+    }
+  ],
+  "automaticApply": false
+}

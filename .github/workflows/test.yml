@@ -1,0 +1,16 @@
+# Jah Noah [Q035]: "be sure to be so heavy on the comments."
+# Engineering: CI checks executable behavior and the integrity of quotation references.
+name: Ark Core checks
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.19.0'
+      - run: npm run check:quotes
+      - run: npm test

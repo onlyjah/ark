@@ -1,0 +1,31 @@
+{
+  "name": "ark-core",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Sovereign rooms, deliberate replicas, and quote-led engineering for Ark Core",
+  "type": "module",
+  "engines": {
+    "node": ">=24.19.0 <25"
+  },
+  "scripts": {
+    "start": "node src/cli.ts serve",
+    "test": "node --test test/*.test.ts",
+    "check:quotes": "node scripts/check-quotes.ts",
+    "build:railway": "node scripts/build-railway.ts",
+    "build:gateway": "node scripts/build-gateway.ts",
+    "typecheck:platform": "tsc -p tsconfig.platform.json"
+  },
+  "dependencies": {
+    "@clerk/backend": "3.23.1",
+    "hono": "4.13.13"
+  },
+  "devDependencies": {
+    "@types/bun": "1.4.0",
+    "@types/node": "24.19.0",
+    "typescript": "5.9.3"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ]
+}

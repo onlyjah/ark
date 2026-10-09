@@ -1,0 +1,385 @@
+{
+  "format_version": 1,
+  "author": "Jah Noah",
+  "provenance": "Exact excerpts from user text supplied in the October 5, 2026 conversation. Transcriptions were not checked against audio. Quotes are human source; engineering comments are assistant interpretation.",
+  "quotes": [
+    {
+      "id": "Q001",
+      "text": "you define the rules and scope of the room, and then you create it.",
+      "source": "2026-10-05 rooms request",
+      "tags": [
+        "charter",
+        "creation"
+      ]
+    },
+    {
+      "id": "Q002",
+      "text": "three or more people are required to sign off on the creation of a room",
+      "source": "2026-10-05 rooms request",
+      "tags": [
+        "trinity",
+        "approval"
+      ]
+    },
+    {
+      "id": "Q003",
+      "text": "Direct messaging, I think, would be cool, but I'm not focused on that right now.",
+      "source": "2026-10-05 rooms request",
+      "tags": [
+        "scope",
+        "messaging"
+      ]
+    },
+    {
+      "id": "Q004",
+      "text": "all your videos are stored on whatever sovereign system that you have access to",
+      "source": "2026-10-05 rooms request",
+      "tags": [
+        "video",
+        "sovereignty"
+      ]
+    },
+    {
+      "id": "Q005",
+      "text": "we have the file backed up across these different places",
+      "source": "2026-10-05 rooms request",
+      "tags": [
+        "replication",
+        "backup"
+      ]
+    },
+    {
+      "id": "Q006",
+      "text": "when I add a new feature, I don't got to edit 15 different projects at once",
+      "source": "2026-10-05 rooms request",
+      "tags": [
+        "client",
+        "reuse"
+      ]
+    },
+    {
+      "id": "Q007",
+      "text": "all my projects are sovereign",
+      "source": "2026-10-05 rooms request",
+      "tags": [
+        "sovereignty",
+        "projects"
+      ]
+    },
+    {
+      "id": "Q008",
+      "text": "let's explore this nebula. Let's coalesce it into something that I can deploy",
+      "source": "2026-10-05 rooms request",
+      "tags": [
+        "deployment",
+        "nebula"
+      ]
+    },
+    {
+      "id": "Q009",
+      "text": "this file may be out of date, but we can always, you know, synchronize it",
+      "source": "2026-10-05 rooms request",
+      "tags": [
+        "versions",
+        "sync"
+      ]
+    },
+    {
+      "id": "Q010",
+      "text": "Independent sites need to be connected right from the start",
+      "source": "2026-10-05 supplied transcript, user msg_idx 11",
+      "tags": [
+        "federation",
+        "independence"
+      ]
+    },
+    {
+      "id": "Q011",
+      "text": "One friggin protocol, like maybe like WireGuard plus another protocol",
+      "source": "2026-10-05 supplied transcript, user msg_idx 29",
+      "tags": [
+        "protocol",
+        "simplicity"
+      ]
+    },
+    {
+      "id": "Q012",
+      "text": "I- I want OnlyJah to be able to run lean",
+      "source": "2026-10-05 supplied transcript, user msg_idx 37",
+      "tags": [
+        "resources",
+        "simplicity"
+      ]
+    },
+    {
+      "id": "Q013",
+      "text": "It's their portal to the internet.",
+      "source": "2026-10-05 supplied transcript, user msg_idx 39",
+      "tags": [
+        "portal",
+        "purpose"
+      ]
+    },
+    {
+      "id": "Q014",
+      "text": "digital sovereignty as a forefront with the concept of- of, you know, privacy as well as collaboration and communication",
+      "source": "2026-10-05 supplied transcript, user msg_idx 37",
+      "tags": [
+        "privacy",
+        "collaboration"
+      ]
+    },
+    {
+      "id": "Q015",
+      "text": "to serve and to steward These big ideas and amazing ideas that people have and their their light and their- their technology and their- their their life's efforts and- and- observations.",
+      "source": "2026-10-05 supplied transcript, user msg_idx 39",
+      "tags": [
+        "stewardship",
+        "purpose"
+      ]
+    },
+    {
+      "id": "Q016",
+      "text": "a space that has whatever tools or technologies inside of it, whatever connections inside of it to other things that- that it needs in order to- to- to do its thing",
+      "source": "2026-10-05 supplied transcript, user msg_idx 29",
+      "tags": [
+        "rooms",
+        "tools"
+      ]
+    },
+    {
+      "id": "Q017",
+      "text": "if if I could use TCP plus Web Sockets for everything That'd be great",
+      "source": "2026-10-05 supplied transcript, user msg_idx 35",
+      "tags": [
+        "transport",
+        "aspiration"
+      ]
+    },
+    {
+      "id": "Q018",
+      "text": "I want Arc to be more or less complete by the time it's launched and it go immediately into maintenance mode, or immediately into feature mode",
+      "source": "2026-10-05 supplied transcript, user msg_idx 35",
+      "tags": [
+        "foundation",
+        "stability"
+      ]
+    },
+    {
+      "id": "Q019",
+      "text": "They can apply one of our open source blueprints or whatever, somehow, some way. It's accessible for them to get set up and for them to engage with the network",
+      "source": "2026-10-05 supplied transcript, user msg_idx 39",
+      "tags": [
+        "blueprints",
+        "accessibility"
+      ]
+    },
+    {
+      "id": "Q020",
+      "text": "Everyone gets an a-a-a slice of the internet effectively",
+      "source": "2026-10-05 supplied transcript, user msg_idx 39",
+      "tags": [
+        "portal",
+        "sovereignty"
+      ]
+    },
+    {
+      "id": "Q021",
+      "text": "the schema is more important at the moment than like the technicalities",
+      "source": "2026-10-05 supplied transcript, user msg_idx 13 continuation",
+      "tags": [
+        "schema",
+        "design"
+      ]
+    },
+    {
+      "id": "Q022",
+      "text": "not everyone's going to have enterprise 24/7 uptime",
+      "source": "2026-10-05 supplied transcript, user msg_idx 13 continuation",
+      "tags": [
+        "availability",
+        "honesty"
+      ]
+    },
+    {
+      "id": "Q023",
+      "text": "we already know each other. We know we're aligned in our mission, our vision, our purpose.",
+      "source": "2026-10-05 supplied transcript, user msg_idx 13",
+      "tags": [
+        "collaboration",
+        "trust"
+      ]
+    },
+    {
+      "id": "Q024",
+      "text": "each person gets a room",
+      "source": "2026-10-05 supplied transcript, user msg_idx 29",
+      "tags": [
+        "personal",
+        "rooms"
+      ]
+    },
+    {
+      "id": "Q025",
+      "text": "the person who created the room, like the owner of the room, is sovereign over the room",
+      "source": "2026-10-05 rooms request",
+      "tags": [
+        "ownership",
+        "governance"
+      ]
+    },
+    {
+      "id": "Q026",
+      "text": "the members of the room are sovereign over the room, and/or the room itself is self-sovereign.",
+      "source": "2026-10-05 rooms request",
+      "tags": [
+        "governance",
+        "charter"
+      ]
+    },
+    {
+      "id": "Q027",
+      "text": "we don't even need to store, like we can have people put in YouTube.",
+      "source": "2026-10-05 rooms request",
+      "tags": [
+        "links",
+        "storage"
+      ]
+    },
+    {
+      "id": "Q028",
+      "text": "make our own, like distributed YouTube",
+      "source": "2026-10-05 rooms request",
+      "tags": [
+        "video",
+        "network"
+      ]
+    },
+    {
+      "id": "Q029",
+      "text": "just regular TCP, block storage, really streamlined protocols",
+      "source": "2026-10-05 rooms request",
+      "tags": [
+        "protocol",
+        "storage"
+      ]
+    },
+    {
+      "id": "Q030",
+      "text": "I have used Git to do various versioning and whatnot for projects within Ark",
+      "source": "2026-10-05 rooms request",
+      "tags": [
+        "git",
+        "adapter"
+      ]
+    },
+    {
+      "id": "Q031",
+      "text": "a more lightweight Golang option, or a more lightweight Rust option, or something that I can even spin up in TypeScript",
+      "source": "2026-10-05 rooms request",
+      "tags": [
+        "implementation",
+        "resources"
+      ]
+    },
+    {
+      "id": "Q032",
+      "text": "use my shared CDN, and that be the template that I use for everything.",
+      "source": "2026-10-05 rooms request",
+      "tags": [
+        "client",
+        "distribution"
+      ]
+    },
+    {
+      "id": "Q033",
+      "text": "the creation, the balance, and the completion",
+      "source": "2026-10-05 rooms request",
+      "tags": [
+        "trinity",
+        "inspiration"
+      ]
+    },
+    {
+      "id": "Q034",
+      "text": "Make a repository called Arc Core and fill it with the software that you think it needs",
+      "source": "2026-10-05 repository request",
+      "tags": [
+        "repository",
+        "implementation"
+      ]
+    },
+    {
+      "id": "Q035",
+      "text": "be sure to be so heavy on the comments.",
+      "source": "2026-10-05 repository request",
+      "tags": [
+        "comments",
+        "documentation"
+      ]
+    },
+    {
+      "id": "Q036",
+      "text": "comment with my quotes.",
+      "source": "2026-10-05 repository request",
+      "tags": [
+        "quotes",
+        "comments"
+      ]
+    },
+    {
+      "id": "Q037",
+      "text": "be sure to quote me on the shit that I be saying.",
+      "source": "2026-10-05 repository request",
+      "tags": [
+        "quotes",
+        "voice"
+      ]
+    },
+    {
+      "id": "Q038",
+      "text": "make sure to expand a quote repository",
+      "source": "2026-10-05 repository request",
+      "tags": [
+        "quotes",
+        "catalog"
+      ]
+    },
+    {
+      "id": "Q039",
+      "text": "make it enough. Make it enough.",
+      "source": "2026-10-05 repository request",
+      "tags": [
+        "depth",
+        "completeness"
+      ]
+    },
+    {
+      "id": "Q040",
+      "text": "go for it.",
+      "source": "2026-10-05 repository request",
+      "tags": [
+        "action",
+        "authorization"
+      ]
+    },
+    {
+      "id": "Q041",
+      "text": "I want shadcdn used across both, a shared UI kit with templates and blocks.",
+      "source": "2026-10-09 platform refactor request",
+      "tags": [
+        "ui",
+        "reuse"
+      ]
+    },
+    {
+      "id": "Q042",
+      "text": "Info is encrypted as it passes through to the client without the client site backend ever getting to read it unless granted permission by the user upon approving access to the client site to aspects of their data.",
+      "source": "2026-10-09 platform refactor request",
+      "tags": [
+        "encryption",
+        "consent"
+      ]
+    }
+  ]
+}

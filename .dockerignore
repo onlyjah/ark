@@ -1,0 +1,8 @@
+data
+.git
+node_modules
+peers.json
+credentials
+exports
+*.sqlite*
+.env*

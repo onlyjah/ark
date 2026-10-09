@@ -1,0 +1,13 @@
+# Jah Noah [Q008]: "let's explore this nebula. Let's coalesce it into something that I can deploy"
+# Engineering: expose only loopback; production requires a separately configured TLS reverse proxy.
+services:
+  ark-core:
+    build: .
+    restart: unless-stopped
+    ports: ["127.0.0.1:8080:8080"]
+    volumes: ["arc-data:/data"]
+    mem_limit: 256m
+    cpus: 0.5
+    pids_limit: 100
+volumes:
+  arc-data:

@@ -1,0 +1,11 @@
+{
+  "name": "@ark/contracts",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./*": "./src/*",
+    ".": "./src/index.ts"
+  },
+  "description": "Shared client and grant types"
+}

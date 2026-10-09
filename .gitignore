@@ -1,0 +1,12 @@
+# Jah Noah [Q007]: "all my projects are sovereign"
+# Engineering: runtime databases, tokens, peers and exports never enter source control.
+data/
+*.sqlite*
+*.db*
+peers.json
+credentials/
+exports/
+node_modules/
+.env*
+
+node_modules/
