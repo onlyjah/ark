@@ -5,7 +5,7 @@ What if the oceans were skies and ships were made of clouds? That's Ark
 Portable modular public-index backend. The canonical static client lives in
 [onlyjah/onlyjah-com](https://github.com/onlyjah/onlyjah-com). This is a bounded
 read-only first slice; private commands, financial automation and mesh enrollment
-are inactive. See [decisions](docs/DECISIONS.md) and [weeds](docs/WEEDS.md).
+are inactive. See [decisions](docs/DECISIONS.md), [deployment](docs/DEPLOYMENT.md), and [weeds](docs/WEEDS.md).
 
 ```sh
 pnpm install --frozen-lockfile
