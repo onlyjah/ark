@@ -1,0 +1,24 @@
+{
+  "schemaVersion": "1.0",
+  "authorityId": "onlyjah-ark",
+  "orgId": "onlyjah",
+  "updatedAt": "2026-10-09T08:10:37Z",
+  "projects": [
+    {"id":"onlyjah","name":"OnlyJah","stage":"unverified","quote":"A tree still has its roots.","source":"user-request-2026-10-08","url":"https://onlyjah.com","originId":null},
+    {"id":"ark","name":"Ark","stage":"development","quote":"What if the oceans were skies and ships were made of clouds? That's Ark","source":"onlyjah/ark/README.md","url":"https://github.com/onlyjah/ark","originId":null},
+    {"id":"forge","name":"Forge","stage":"development","quote":null,"source":"onlyjah/onlyjah-com/docs/README.md","url":"https://test.onlyjah.com/forge","originId":null},
+    {"id":"media","name":"Media","stage":"research","quote":null,"source":"user-request-2026-10-08","url":"https://test.onlyjah.com/media","originId":null},
+    {"id":"realm","name":"Realm","stage":"research","quote":null,"source":"user-request-2026-10-08","url":"https://test.onlyjah.com/realm","originId":null},
+    {"id":"nebula","name":"Nebula","stage":"research","quote":"the nebula generates stars.","source":"user-naming-clarification-2026-10-08","url":null,"originId":null},
+    {"id":"constellation","name":"Constellation","stage":"development","quote":null,"source":"constellation-pilot-0.1","url":null,"originId":"nebula"}
+  ],
+  "relationships": [
+    {"source":"onlyjah","target":"ark","type":"connected"},
+    {"source":"onlyjah","target":"forge","type":"supports"},
+    {"source":"onlyjah","target":"media","type":"supports"},
+    {"source":"onlyjah","target":"realm","type":"supports"},
+    {"source":"realm","target":"constellation","type":"contains"},
+    {"source":"nebula","target":"constellation","type":"incubates"},
+    {"source":"ark","target":"realm","type":"connects"}
+  ]
+}

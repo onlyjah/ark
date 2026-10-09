@@ -1,0 +1,403 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Ark Constellation public API",
+    "version": "0.1.0",
+    "description": "Implemented read-only public slice. Private commands, IAM, financial execution and distributed private replay are disabled. Project maturity is not commercial revenue proof."
+  },
+  "paths": {
+    "/": {
+      "get": {
+        "operationId": "discovery",
+        "responses": {
+          "200": {
+            "description": "Successful public result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "304": {
+            "description": "Public representation unchanged"
+          },
+          "400": {
+            "description": "Invalid query bounds"
+          },
+          "404": {
+            "description": "Unavailable public resource"
+          }
+        }
+      }
+    },
+    "/health/live": {
+      "get": {
+        "operationId": "liveness",
+        "responses": {
+          "200": {
+            "description": "Successful public result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "304": {
+            "description": "Public representation unchanged"
+          },
+          "400": {
+            "description": "Invalid query bounds"
+          },
+          "404": {
+            "description": "Unavailable public resource"
+          }
+        }
+      }
+    },
+    "/health/ready": {
+      "get": {
+        "operationId": "readiness",
+        "responses": {
+          "200": {
+            "description": "Successful public result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "304": {
+            "description": "Public representation unchanged"
+          },
+          "400": {
+            "description": "Invalid query bounds"
+          },
+          "404": {
+            "description": "Unavailable public resource"
+          }
+        }
+      }
+    },
+    "/api/v1/capabilities": {
+      "get": {
+        "operationId": "capabilities",
+        "responses": {
+          "200": {
+            "description": "Successful public result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "304": {
+            "description": "Public representation unchanged"
+          },
+          "400": {
+            "description": "Invalid query bounds"
+          },
+          "404": {
+            "description": "Unavailable public resource"
+          }
+        }
+      }
+    },
+    "/api/v1/public/catalogue": {
+      "get": {
+        "operationId": "publicCatalogue",
+        "responses": {
+          "200": {
+            "description": "Successful public result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "304": {
+            "description": "Public representation unchanged"
+          },
+          "400": {
+            "description": "Invalid query bounds"
+          },
+          "404": {
+            "description": "Unavailable public resource"
+          }
+        }
+      }
+    },
+    "/api/v1/public/projects": {
+      "get": {
+        "operationId": "publicProjects",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "maxLength": 128
+            }
+          },
+          {
+            "name": "stage",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "research",
+                "development",
+                "production",
+                "unverified"
+              ]
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 100
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 10000,
+              "default": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful public result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "304": {
+            "description": "Public representation unchanged"
+          },
+          "400": {
+            "description": "Invalid query bounds"
+          },
+          "404": {
+            "description": "Unavailable public resource"
+          }
+        }
+      }
+    },
+    "/api/v1/public/projects/{id}": {
+      "get": {
+        "operationId": "publicProject",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9-]{0,63}$"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful public result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "304": {
+            "description": "Public representation unchanged"
+          },
+          "400": {
+            "description": "Invalid query bounds"
+          },
+          "404": {
+            "description": "Unavailable public resource"
+          }
+        }
+      }
+    },
+    "/api/v1/public/graph": {
+      "get": {
+        "operationId": "publicGraph",
+        "parameters": [
+          {
+            "name": "root",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "onlyjah"
+            }
+          },
+          {
+            "name": "depth",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4,
+              "default": 2
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 200,
+              "default": 100
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful public result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "304": {
+            "description": "Public representation unchanged"
+          },
+          "400": {
+            "description": "Invalid query bounds"
+          },
+          "404": {
+            "description": "Unavailable public resource"
+          }
+        }
+      }
+    },
+    "/api/v1/public/events": {
+      "get": {
+        "operationId": "publicRevisionEvents",
+        "responses": {
+          "200": {
+            "description": "Public snapshot revision and heartbeats. Reconnect fetches the current snapshot; no private durable replay.",
+            "content": {
+              "text/event-stream": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Bounded stream registry full"
+          }
+        }
+      }
+    },
+    "/openapi.json": {
+      "get": {
+        "operationId": "openApiContract",
+        "responses": {
+          "200": {
+            "description": "Successful public result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "304": {
+            "description": "Public representation unchanged"
+          },
+          "400": {
+            "description": "Invalid query bounds"
+          },
+          "404": {
+            "description": "Unavailable public resource"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Project": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "name",
+          "stage",
+          "quote",
+          "source",
+          "url",
+          "originId"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "stage": {
+            "type": "string",
+            "enum": [
+              "research",
+              "development",
+              "production",
+              "unverified"
+            ]
+          },
+          "quote": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "source": {
+            "type": "string"
+          },
+          "url": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "originId": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

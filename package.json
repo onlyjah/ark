@@ -1,0 +1,20 @@
+{
+  "name": "@onlyjah/ark-constellation",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "start": "node src/node.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "check": "node scripts/check.mjs",
+    "build": "node scripts/check.mjs"
+  },
+  "dependencies": {
+    "@hono/node-server": "2.1.4",
+    "hono": "4.13.13"
+  },
+  "packageManager": "pnpm@11.25.0"
+}
