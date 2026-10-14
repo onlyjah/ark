@@ -1,13 +1,20 @@
-# Jah Noah [Q008]: "let's explore this nebula. Let's coalesce it into something that I can deploy"
-# Engineering: expose only loopback; production requires a separately configured TLS reverse proxy.
+# Compact KASH installation. Data remains on the selected drive.
 services:
-  ark-core:
+  kash:
     build: .
+    env_file: ${KASH_ENV_FILE:-.kash-install/environment}
+    user: "${KASH_UID:-1000}:${KASH_GID:-1000}"
+    init: true
     restart: unless-stopped
+    read_only: true
+    tmpfs: [/tmp]
     ports: ["127.0.0.1:8080:8080"]
-    volumes: ["arc-data:/data"]
+    volumes:
+      - type: bind
+        source: ${KASH_DATA_PATH:-./data}
+        target: /data
     mem_limit: 256m
     cpus: 0.5
     pids_limit: 100
-volumes:
-  arc-data:
+    security_opt: [no-new-privileges:true]
+    cap_drop: [ALL]

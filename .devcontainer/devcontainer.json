@@ -1,0 +1,9 @@
+{
+  "name": "KASH operator + Ark",
+  "image": "node:24.19.0-bookworm",
+  "features": { "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {} },
+  "postCreateCommand": "npm ci --ignore-scripts && npm ci --prefix test/markdown-ui --ignore-scripts",
+  "forwardPorts": [8080],
+  "remoteUser": "node",
+  "containerEnv": { "npm_config_update_notifier": "false" }
+}

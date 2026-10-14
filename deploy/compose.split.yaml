@@ -1,0 +1,122 @@
+# Opt-in only. Five processes consume more memory than the compact default.
+# Run from repo root: docker compose --env-file .env -f deploy/compose.split.yaml up --build
+services:
+  portalizer:
+    build: {context: ..}
+    command: [bun, /app/portalizer.mjs]
+    ports: ["127.0.0.1:8080:8080"]
+    environment:
+      SOIL_AUTH_MODE: ${SOIL_AUTH_MODE:-compatible}
+      SOIL_API_URL: ${SOIL_API_URL:-https://soil.jah.earth/api/v1}
+      SOIL_APP_URL: ${SOIL_APP_URL:-https://soil.jah.earth/app}
+      SOIL_ISSUER: ${SOIL_ISSUER:-https://soil.jah.earth/api/v1}
+      SOIL_JWKS_URL: ${SOIL_JWKS_URL:-https://soil.jah.earth/api/v1/.well-known/jwks.json}
+      SOIL_AUDIENCE: ${SOIL_AUDIENCE:-kash}
+      ARK_APP_ORIGIN: ${ARK_APP_ORIGIN:?set HTTPS origin}
+      ARK_ACCOUNTS_URL: http://accounts:8080
+      ARK_BILLING_URL: http://billing:8080
+      ARK_WORKSPACE_URL: http://workspace:8080
+      ARK_CLIENT_URL: http://client:8080
+      ARK_ACCOUNTS_PORTAL_KEY: ${ARK_ACCOUNTS_PORTAL_KEY:?set key}
+      ARK_ACCOUNTS_PORTALIZER_KEY: ${ARK_ACCOUNTS_PORTALIZER_KEY:?set key}
+      ARK_BILLING_PORTAL_KEY: ${ARK_BILLING_PORTAL_KEY:?set key}
+      ARK_WORKSPACE_PORTAL_KEY: ${ARK_WORKSPACE_PORTAL_KEY:?set key}
+      ARK_CLIENT_PORTAL_KEY: ${ARK_CLIENT_PORTAL_KEY:?set key}
+      ARK_PORT_ENTRIES: ${ARK_PORT_ENTRIES:-[]}
+    mem_limit: 96m
+    cpus: 0.25
+    pids_limit: 100
+    restart: unless-stopped
+  accounts:
+    build: {context: ..}
+    command: [bun, /app/accounts.mjs]
+    environment:
+      SOIL_AUTH_MODE: ${SOIL_AUTH_MODE:-compatible}
+      SOIL_API_URL: ${SOIL_API_URL:-https://soil.jah.earth/api/v1}
+      SOIL_APP_URL: ${SOIL_APP_URL:-https://soil.jah.earth/app}
+      SOIL_ISSUER: ${SOIL_ISSUER:-https://soil.jah.earth/api/v1}
+      SOIL_JWKS_URL: ${SOIL_JWKS_URL:-https://soil.jah.earth/api/v1/.well-known/jwks.json}
+      SOIL_AUDIENCE: ${SOIL_AUDIENCE:-kash}
+      ARK_APP_ORIGIN: ${ARK_APP_ORIGIN}
+      ARK_DATABASE_URL: ${ARK_ACCOUNTS_DATABASE_URL:?set scoped accounts database URL}
+      NEON_AUTH_BASE_URL: ${NEON_AUTH_BASE_URL}
+      ARK_ACCOUNTS_PORTAL_KEY: ${ARK_ACCOUNTS_PORTAL_KEY}
+      ARK_ACCOUNTS_PORTALIZER_KEY: ${ARK_ACCOUNTS_PORTALIZER_KEY}
+      ARK_ACCOUNTS_WORKSPACE_KEY: ${ARK_ACCOUNTS_WORKSPACE_KEY:?set key}
+      ARK_ACCOUNTS_BILLING_KEY: ${ARK_ACCOUNTS_BILLING_KEY:?set key}
+    mem_limit: 128m
+    cpus: 0.25
+    pids_limit: 100
+    restart: unless-stopped
+  billing:
+    build: {context: ..}
+    command: [bun, /app/billing.mjs]
+    environment:
+      SOIL_AUTH_MODE: ${SOIL_AUTH_MODE:-compatible}
+      SOIL_API_URL: ${SOIL_API_URL:-https://soil.jah.earth/api/v1}
+      SOIL_APP_URL: ${SOIL_APP_URL:-https://soil.jah.earth/app}
+      SOIL_ISSUER: ${SOIL_ISSUER:-https://soil.jah.earth/api/v1}
+      SOIL_JWKS_URL: ${SOIL_JWKS_URL:-https://soil.jah.earth/api/v1/.well-known/jwks.json}
+      SOIL_AUDIENCE: ${SOIL_AUDIENCE:-kash}
+      ARK_APP_ORIGIN: ${ARK_APP_ORIGIN}
+      ARK_DATABASE_URL: ${ARK_BILLING_DATABASE_URL:?set scoped billing database URL}
+      ARK_ACCOUNTS_URL: http://accounts:8080
+      ARK_ACCOUNTS_BILLING_KEY: ${ARK_ACCOUNTS_BILLING_KEY}
+      ARK_BILLING_PORTAL_KEY: ${ARK_BILLING_PORTAL_KEY}
+      STRIPE_MODE: ${STRIPE_MODE:-test}
+      STRIPE_PRICE_ID: ${STRIPE_PRICE_ID:-}
+      STRIPE_RESTRICTED_KEY: ${STRIPE_RESTRICTED_KEY:-}
+      STRIPE_WEBHOOK_SECRET: ${STRIPE_WEBHOOK_SECRET:-}
+    mem_limit: 128m
+    cpus: 0.25
+    pids_limit: 100
+    restart: unless-stopped
+  client:
+    build: {context: ..}
+    command: [bun, /app/client.mjs]
+    environment:
+      SOIL_AUTH_MODE: ${SOIL_AUTH_MODE:-compatible}
+      SOIL_API_URL: ${SOIL_API_URL:-https://soil.jah.earth/api/v1}
+      SOIL_APP_URL: ${SOIL_APP_URL:-https://soil.jah.earth/app}
+      SOIL_ISSUER: ${SOIL_ISSUER:-https://soil.jah.earth/api/v1}
+      SOIL_JWKS_URL: ${SOIL_JWKS_URL:-https://soil.jah.earth/api/v1/.well-known/jwks.json}
+      SOIL_AUDIENCE: ${SOIL_AUDIENCE:-kash}
+      NEON_AUTH_BASE_URL: ${NEON_AUTH_BASE_URL}
+      ARK_CLIENT_PORTAL_KEY: ${ARK_CLIENT_PORTAL_KEY}
+    mem_limit: 96m
+    cpus: 0.25
+    pids_limit: 100
+    restart: unless-stopped
+  workspace:
+    build: {context: ..}
+    command: [bun, /app/workspace.mjs]
+    volumes: ["arc-data:/data"]
+    environment:
+      SOIL_AUTH_MODE: ${SOIL_AUTH_MODE:-compatible}
+      SOIL_API_URL: ${SOIL_API_URL:-https://soil.jah.earth/api/v1}
+      SOIL_APP_URL: ${SOIL_APP_URL:-https://soil.jah.earth/app}
+      SOIL_ISSUER: ${SOIL_ISSUER:-https://soil.jah.earth/api/v1}
+      SOIL_JWKS_URL: ${SOIL_JWKS_URL:-https://soil.jah.earth/api/v1/.well-known/jwks.json}
+      SOIL_AUDIENCE: ${SOIL_AUDIENCE:-kash}
+      ARK_APP_ORIGIN: ${ARK_APP_ORIGIN}
+      ARK_DATA: /data
+      ARK_ARCHIVE_LOCAL: ${ARK_ARCHIVE_LOCAL:-0}
+      ARK_VOLUME_MOUNT_PATH: /data
+      ARK_BOOTSTRAP_ID: ${ARK_BOOTSTRAP_ID}
+      ARK_BOOTSTRAP_TOKEN_HASH: ${ARK_BOOTSTRAP_TOKEN_HASH}
+      ARK_ACCOUNTS_URL: http://accounts:8080
+      ARK_ACCOUNTS_WORKSPACE_KEY: ${ARK_ACCOUNTS_WORKSPACE_KEY}
+      ARK_WORKSPACE_PORTAL_KEY: ${ARK_WORKSPACE_PORTAL_KEY}
+      ARK_ARCHIVE_BUCKET: ${ARK_ARCHIVE_BUCKET:-}
+      ARK_ARCHIVE_ENDPOINT: ${ARK_ARCHIVE_ENDPOINT:-}
+      ARK_ARCHIVE_REGION: ${ARK_ARCHIVE_REGION:-}
+      ARK_ARCHIVE_ACCESS_KEY_ID: ${ARK_ARCHIVE_ACCESS_KEY_ID:-}
+      ARK_ARCHIVE_SECRET_ACCESS_KEY: ${ARK_ARCHIVE_SECRET_ACCESS_KEY:-}
+    mem_limit: 250m
+    cpus: 0.5
+    pids_limit: 100
+    restart: unless-stopped
+volumes:
+  arc-data:
+    external: true
+    name: ${ARK_VOLUME_NAME:?set existing archive volume name; do not initialize a second archive}

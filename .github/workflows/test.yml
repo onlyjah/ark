@@ -1,6 +1,6 @@
 # Jah Noah [Q035]: "be sure to be so heavy on the comments."
 # Engineering: CI checks executable behavior and the integrity of quotation references.
-name: Ark Core checks
+name: KASH checks
 on: [push, pull_request]
 permissions:
   contents: read
@@ -12,5 +12,13 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '24.19.0'
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.4.0
+      - run: npm ci --ignore-scripts
+      - run: npm ci --prefix test/markdown-ui --ignore-scripts
+      - run: npm run build
       - run: npm run check:quotes
       - run: npm test
+      - run: bun test test/railway-loader.test.ts test/railway.test.ts
+      - run: npm run test:ui

@@ -1,0 +1,16 @@
+{
+  "project": "KASH App",
+  "project_id": "29c6b365-6d5d-4eaa-9464-fde7f3182be8",
+  "environment": "staging",
+  "environment_id": "7e3a5a42-4351-44e8-960d-007f3071b031",
+  "service": "ark-core",
+  "service_id": "fb8f559e-cadd-4555-a59a-0c8e045089af",
+  "version": "0.4.0",
+  "repository": "onlyjah/ark",
+  "branch": "main",
+  "source_sha": null,
+  "status": "prepared",
+  "soil_auth_mode": "compatible",
+  "backup_protection": "unconfigured",
+  "automatic_cleanup": false
+}

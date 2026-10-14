@@ -1,0 +1,22 @@
+name: KASH portable launchers
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.4.0
+      - run: bun scripts/build-portable.ts
+      - uses: actions/upload-artifact@v4
+        with:
+          name: kash-portable-0.4.0
+          path: |
+            release/
+            portable/start.html
+            docs/INSTALL.md
+          retention-days: 14

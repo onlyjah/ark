@@ -8,5 +8,17 @@ credentials/
 exports/
 node_modules/
 .env*
+!.env.example
+operator-access.json
+.kash-install/
+railway/ark-core.function.ts
+railway/build-entry.ts
+web/auth-sdk.js
+web/kash-map.js
+release/
 
 node_modules/
+services/*/entry.generated.ts
+services/client/assets.generated.ts
+railway/release-variables.json
+dist/

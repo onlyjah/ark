@@ -1,0 +1,46 @@
+{
+  "version": "0.4.0",
+  "application": "KASH",
+  "profile": "compact",
+  "services": [
+    "portalizer",
+    "client",
+    "workspace",
+    "accounts",
+    "billing"
+  ],
+  "project_id": "29c6b365-6d5d-4eaa-9464-fde7f3182be8",
+  "environment_id": "7e3a5a42-4351-44e8-960d-007f3071b031",
+  "service_id": "fb8f559e-cadd-4555-a59a-0c8e045089af",
+  "staged_patch": "7ecd5ded-adc3-42c5-80d7-b28c3125f9ee",
+  "staged_change_count": 36,
+  "live": false,
+  "deployment_state": "blocked_by_approval",
+  "release_sha256": "c1be30552c155dfee201b9b51a64ddce5e46ddab4de13d4ec06cafeef3468f05",
+  "release_chunks": 33,
+  "files": {
+    "dist/accounts.mjs": {
+      "bytes": 173390,
+      "sha256": "65ce831997446d99c72a8ee9c29f3ce742ead1ef20df241bf54e79ee596f68ca"
+    },
+    "dist/billing.mjs": {
+      "bytes": 388916,
+      "sha256": "3c0e82e96ddca1af115ec936cb55cdd9b9371115ef071f1169351195d40bf28e"
+    },
+    "dist/client.mjs": {
+      "bytes": 1024298,
+      "sha256": "21f9471097b665c0361b3c16322a8601f5700fdc7169a37052424502439ab090"
+    },
+    "dist/portalizer.mjs": {
+      "bytes": 10778,
+      "sha256": "0685f38862744b80a7f0d3c686600693a2f2c2924831c8e5b9ee757a61c0500f"
+    },
+    "dist/workspace.mjs": {
+      "bytes": 41216,
+      "sha256": "4a387a212a8c7b615014b8f90b76277f3c2059502863c7f0bcf9132fa311d640"
+    }
+  },
+  "source_repository": "onlyjah/ark",
+  "source_branch": "main",
+  "soil_sdk": "xtp/soil"
+}

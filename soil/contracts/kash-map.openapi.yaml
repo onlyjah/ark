@@ -1,0 +1,37 @@
+openapi: 3.1.0
+info:
+  title: KASH workspace observations
+  version: 0.3.0
+  description: Implemented read-only owner-scoped observations. Backup verification, device enrollment, event streams and cleanup actions are not implemented by this contract.
+paths:
+  /app/api/kash/map:
+    get:
+      operationId: observeKashWorkspace
+      summary: Read the current authorized workspace projection
+      security:
+        - LegacySession: []
+        - OnlyJahIdentity: []
+      responses:
+        '200':
+          description: Current owner-only projection; Cache-Control no-store. Place coordinates are schematic. Configured connections remain unverified until probed; backup protection and cleanup remain unconfigured.
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [schema_version, context_id, sequence, observed_at, source, places, edges, resource, observation]
+                properties:
+                  schema_version: {type: string, const: 0.1.0}
+                  context_id: {type: string}
+                  sequence: {type: integer, minimum: 0}
+                  observed_at: {type: string, format: date-time}
+                  source: {type: string, const: live}
+                  places: {type: array, maxItems: 64, items: {type: object}}
+                  edges: {type: array, maxItems: 128, items: {type: object}}
+                  resource: {type: object}
+                  observation: {type: object}
+        '401': {description: Missing, expired or revoked authorization}
+        '403': {description: Origin or request context rejected}
+components:
+  securitySchemes:
+    LegacySession: {type: apiKey, in: cookie, name: __Host-ark-session}
+    OnlyJahIdentity: {type: http, scheme: bearer, bearerFormat: JWT}

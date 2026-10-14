@@ -19,5 +19,5 @@ function walk(dir:string) {
     }
   }
 }
-for(const dir of ['src','test','scripts','client','railway','web','packages','apps']) walk(dir);
+for(const dir of ['src','packages','services','plugins','test','scripts','client','railway','web']) walk(dir);
 console.log(`${catalog.quotes.length} catalog quotes; ${checked} code comment references verified.`);

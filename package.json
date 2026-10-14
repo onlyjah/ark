@@ -1,31 +1,36 @@
 {
-  "name": "ark-core",
-  "version": "0.1.0",
+  "name": "kash-app",
+  "version": "0.4.0",
   "private": true,
-  "description": "Sovereign rooms, deliberate replicas, and quote-led engineering for Ark Core",
+  "description": "KASH client operator on Ark with provider-configured SO/IL and portable installation",
   "type": "module",
   "engines": {
     "node": ">=24.19.0 <25"
   },
   "scripts": {
-    "start": "node src/cli.ts serve",
+    "start": "bun railway/ark-core.function.ts",
     "test": "node --test test/*.test.ts",
     "check:quotes": "node scripts/check-quotes.ts",
     "build:railway": "node scripts/build-railway.ts",
-    "build:gateway": "node scripts/build-gateway.ts",
-    "typecheck:platform": "tsc -p tsconfig.platform.json"
+    "start:core": "node src/cli.ts serve",
+    "build": "node scripts/build-railway.ts",
+    "build:services": "node scripts/build-services.ts",
+    "serve:accounts": "bun dist/accounts.mjs",
+    "serve:billing": "bun dist/billing.mjs",
+    "serve:workspace": "bun dist/workspace.mjs",
+    "serve:client": "bun dist/client.mjs",
+    "serve:portalizer": "bun dist/portalizer.mjs",
+    "install:local": "node scripts/install.ts",
+    "build:portable": "bun scripts/build-portable.ts",
+    "test:ui": "node test/markdown-ui/check.cjs && node test/markdown-ui/member-check.cjs && node test/markdown-ui/kash-check.cjs"
   },
   "dependencies": {
-    "@clerk/backend": "3.23.1",
-    "hono": "4.13.13"
+    "@neondatabase/auth": "0.5.0-beta",
+    "@neondatabase/serverless": "1.2.0",
+    "jose": "6.2.12",
+    "stripe": "23.0.0"
   },
   "devDependencies": {
-    "@types/bun": "1.4.0",
-    "@types/node": "24.19.0",
-    "typescript": "5.9.3"
-  },
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ]
+    "esbuild": "0.28.2"
+  }
 }
