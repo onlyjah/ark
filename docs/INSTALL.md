@@ -36,8 +36,8 @@ node scripts/install.ts --origin https://your-kash-host.example --data /srv/kash
 
 Put an existing HTTPS reverse proxy in front of `127.0.0.1:8080`. Do not expose
 the HTTP container port publicly. Configure external identity origins when
-using a managed account provider. The drive directory must permit the container
-UID/GID, and SQLite requires a filesystem with reliable locking and flushes.
+using a managed account provider. The container runs as the existing mounted data owner without changing archive
+ownership. Local Compose selects the host UID/GID. The drive must permit that identity, and SQLite requires a filesystem with reliable locking and flushes.
 Do not open one SQLite directory from several machines or start two Ark servers
 on the same rotated archive simultaneously. Preserve the drive's ownership and
 encrypted storage policy when moving it between hosts.
