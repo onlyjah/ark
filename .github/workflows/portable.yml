@@ -12,11 +12,12 @@ jobs:
         with:
           bun-version: 1.4.0
       - run: bun scripts/build-portable.ts
+      - run: |
+          cp portable/start.html release/start.html
+          cp docs/INSTALL.md release/INSTALL.md
+          cp portable/THIRD-PARTY.md release/THIRD-PARTY.md
       - uses: actions/upload-artifact@v4
         with:
           name: kash-portable-0.4.0
-          path: |
-            release/
-            portable/start.html
-            docs/INSTALL.md
+          path: release/
           retention-days: 14

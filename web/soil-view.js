@@ -12,7 +12,7 @@
  function open(){if(!config)return;close(false);window.KashWorkspace?.show('accounts');const epoch=generation;$('soil-view').hidden=false;
   const panel=$('soil-frame');frame=document.createElement('iframe');frame.title='SO/IL identity and accounts';
   frame.referrerPolicy='no-referrer';frame.setAttribute('sandbox','allow-scripts allow-forms allow-same-origin allow-popups');
-  frame.src=config.app_url;frame.onload=()=>connect(frame.contentWindow,epoch);panel.replaceChildren(frame);$('soil-close').focus();
+  frame.src=config.app_url;const mounted=frame;frame.onload=()=>{if(generation===epoch&&frame===mounted)connect(mounted.contentWindow,epoch);};panel.replaceChildren(frame);$('soil-close').focus();
  }
  window.KashSoil={configure(value,login){config=value;onLogin=login;client=window.Soil.createClient(value);$('soil-signin').hidden=value.mode!=='soil';$('soil-standalone').href=value.app_url;},
   open,close,headers:()=>client.headers(),get session(){return client?.session;},
