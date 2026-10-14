@@ -4,6 +4,9 @@ KASH is the browser/client operator. Ark supplies durable storage, immutable
 revisions and resource authority. This is the canonical runnable source for
 **KASH App → staging**, version **0.4.0**.
 
+Source is published; the 17-change Railway release is staged and blocked by the
+automatic approval layer. The running release has not been replaced.
+
 Start with [installation](docs/INSTALL.md), the [SO/IL SDK](xtp/soil/README.md),
 and the [staging record](docs/KASH-STAGING.md). Private state and credentials
 stay out of the repository.

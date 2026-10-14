@@ -71,3 +71,14 @@ Railway release outcome and pinned source SHA are recorded in
 `deploy/staging.json` after publishing. A completed build or staged patch does
 not establish that a deployment is live; terminal SUCCESS and HTTP verification
 must be checked independently.
+
+## Release outcome
+
+Source commit `7ea4a3af5ed3d89b9d77e5ca45840211c1ca5520` was published to
+`onlyjah/ark` main. Railway patch `4f346259-4cab-437c-a359-1a9fd2a64a12`
+contains 17 non-destructive changes, all on `ark-core` in staging. Automatic
+approval rejected committing the patch; no new deployment was started. The
+previous successful deployment remains `7192885e-5750-4fde-8a98-7d28cc08f5cf`.
+The Docker image itself has not been built/deployed on Railway for this release.
+The startup smoke check used the current local data owner; migration to another
+UID still requires actual container verification.

@@ -8,9 +8,30 @@
   "version": "0.4.0",
   "repository": "onlyjah/ark",
   "branch": "main",
-  "source_sha": null,
-  "status": "prepared",
+  "source_sha": "7ea4a3af5ed3d89b9d77e5ca45840211c1ca5520",
+  "status": "staged_blocked_by_approval",
   "soil_auth_mode": "compatible",
   "backup_protection": "unconfigured",
-  "automatic_cleanup": false
+  "automatic_cleanup": false,
+  "live_release_replaced": false,
+  "patch_id": "4f346259-4cab-437c-a359-1a9fd2a64a12",
+  "staged_change_count": 17,
+  "previous_live_deployment_id": "7192885e-5750-4fde-8a98-7d28cc08f5cf",
+  "checks": {
+    "node_passed": 41,
+    "bun_passed": 4,
+    "ui_checks_passed": 3,
+    "quotes_retained": 42,
+    "compiled_launcher_targets": 5,
+    "executed_launcher_targets": [
+      "linux-x64"
+    ],
+    "github_actions": {
+      "conclusion": "success",
+      "run_id": 38578385622,
+      "source_sha": "7ea4a3af5ed3d89b9d77e5ca45840211c1ca5520",
+      "url": "https://github.com/onlyjah/ark/actions/runs/38578385622"
+    }
+  },
+  "approval_result": "Cancelled — the user did not approve this action. No changes were made."
 }
