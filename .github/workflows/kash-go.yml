@@ -22,7 +22,7 @@ jobs:
       KASH_TEST_DATABASE_URL: postgres://kash_test:isolated_test_fixture@localhost:5432/kash_test?sslmode=disable
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-go@v6
+      - uses: actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff # v5, pinned official action
         with:
           go-version-file: backend/go.mod
           cache-dependency-path: backend/go.sum
