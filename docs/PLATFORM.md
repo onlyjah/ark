@@ -1,3 +1,5 @@
+> Retained TypeScript/Bun profile. For the Go migration, start with [BUILD.md](BUILD.md), [KASH-GO.md](KASH-GO.md), and [GIT-DEPLOY.md](GIT-DEPLOY.md).
+
 # Ark platform, 9 October 2026
 
 > I want shadcdn used across both, a shared UI kit with templates and blocks.

@@ -5,3 +5,9 @@ data
 *.zip
 railway/*snapshot*
 test
+**/node_modules
+**/bin
+client/dist
+data-go
+backend/internal/client/static/assets
+backend/internal/client/static/app

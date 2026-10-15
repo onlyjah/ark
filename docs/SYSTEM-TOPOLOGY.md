@@ -1,3 +1,5 @@
+> Retained TypeScript/Bun profile. For the Go migration, start with [BUILD.md](BUILD.md), [KASH-GO.md](KASH-GO.md), and [GIT-DEPLOY.md](GIT-DEPLOY.md).
+
 > Current implementation: [Portalizer and service refactor, version 0.2.0](PORTALIZER.md). Earlier topology/deployment notes below describe the preceding pilot or future plans. The full-source Railway Function startup command is superseded by the bounded loader.
 
 # Current implementation update

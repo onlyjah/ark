@@ -22,3 +22,8 @@ services/*/entry.generated.ts
 services/client/assets.generated.ts
 railway/release-variables.json
 dist/
+backend/bin/
+backend/internal/client/static/assets/
+backend/internal/client/static/app/
+data-go/
+client/.vite/

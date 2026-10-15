@@ -1,3 +1,5 @@
+> Retained TypeScript/Bun profile. For the Go migration, start with [BUILD.md](BUILD.md), [KASH-GO.md](KASH-GO.md), and [GIT-DEPLOY.md](GIT-DEPLOY.md).
+
 # Install KASH
 
 KASH is the client operator. Ark supplies durable storage and resource authority.

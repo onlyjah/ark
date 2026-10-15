@@ -1,41 +1,55 @@
-# KASH on Ark
+# KA$H.app
 
-KASH is the browser/client operator. Ark supplies durable storage, immutable
-revisions and resource authority. This is the canonical runnable source for
-**KASH App → staging**, version **0.4.0**.
+**Go backend and native bridge. TypeScript / React / TanStack client.**
 
-Source is published; the 17-change Railway release is staged and blocked by the
-automatic approval layer. The running release has not been replaced.
+The new **0.5 Go migration preview** is runnable and separate from the existing
+TypeScript/Bun release. It does not silently import the old archive or claim
+completed multi-site redundancy. The Railway project still displays `KASH App`;
+this repository and the new client use the requested **KA$H.app** product name.
 
-Start with [installation](docs/INSTALL.md), the [SO/IL SDK](xtp/soil/README.md),
-and the [staging record](docs/KASH-STAGING.md). Private state and credentials
-stay out of the repository.
+Start with [what each build step and dependency does](docs/BUILD.md),
+[architecture and implementation status](docs/KASH-GO.md),
+[GitHub / local deployment](docs/GIT-DEPLOY.md) and [Go API](docs/GO-API.md).
+
+| Source | Responsibility |
+| --- | --- |
+| `backend/` | Native Go API, SO/IL verifier, SQLite/Postgres metadata, object adapters, folder bridge |
+| `client/` | React client, TanStack routing/query, local encrypted upload/download |
+| `ui/` | Shared theme tokens and typed block contracts |
+| `xtp/soil/` | Shared provider configuration and browser handshake SDK |
+| `web/kash/` | Lightweight framework-independent storage-world map |
+| `Dockerfile.go`, `Makefile`, `compose.go.yaml` | Commented, conventional Go/client build and local installation |
 
 ```sh
-npm ci --ignore-scripts
-npm run build
-npm test
-npm run check:quotes
-node scripts/install.ts --data /absolute/path/on/your/drive/kash/ark
+make build
+make test
+./backend/bin/kash serve
 ```
 
-The installer needs Docker Compose. It prepares a persistent local installation,
-including a private access file, rather than merely cloning source. Android uses
-the installable browser app; portable launchers are separate per-platform builds.
+Building needs Go **1.27.2** and Node **24.19.0**; the compiled executable needs
+neither runtime. `docker build -f Dockerfile.go -t kash-go .` performs the same
+build in containers. Private APIs require the configured SO/IL provider.
 
-The new shared SDK lives at **`xtp/soil`**. `SOIL_API_URL` selects the provider API;
-`SOIL_APP_URL` selects the embedded/standalone identity and accounts app. Strict
-SO/IL mode verifies every private request. Staging currently preserves existing
-compatible enrollment and Neon sessions while the remote provider contract is
-prepared; those sessions are not labelled as remotely SO/IL-verified.
+The Go path implements owner-scoped revisions, compare-and-swap edits,
+tombstones, durable retry receipts, local/S3 object verification and an encrypted
+selected-folder push bridge. The client and bridge share a content envelope.
+The bridge keeps local files and pending snapshots when a transfer or conflict
+fails. Local cleanup remains disabled.
 
-The map reports observed state. Independent backups, native all-file sync,
-concurrent delete/edit merging and automatic eviction remain unfinished. A cloud
-save is not proof of redundant protection.
+Not yet migrated: legacy room/editor/publication/payment APIs and old data.
+Not yet implemented: database/object replication across sites, verified backup
+workers and restore drills, large-file chunking, initial pull/pairing,
+bidirectional sync, automatic conflict merging, key recovery/rotation,
+mobile native packaging, and automatic eviction. Postgres is a shared metadata
+authority; adding it alone is not a distributed multi-site database.
 
-The older platform and Constellation previews remain in Git history and their
-pinned deployment branches. `web/`, `xtp/soil/`, `services/` and `packages/core/`
-are the current implementation; generated bundles are built rather than edited.
-Human quotes remain exact in [the quote catalog](quotes/README.md). This technical
-README is implementation documentation and is not attributed as Jah's wording.
-No software license has been selected.
+The root `Dockerfile`, root `package.json`, `services/`, `packages/`, `plugins/`,
+`railway/` and most of `web/` retain the **0.4 TypeScript/Bun implementation** for
+migration and rollback. They are not the runtime of `Dockerfile.go`. The
+previous portable binaries were browser launchers; the new Go binary has an
+actual folder push agent. See [legacy installation](docs/INSTALL.md) only when
+working on the retained 0.4 profile.
+
+No project software license has been selected. Human quotations remain exact
+in [the quote catalog](quotes/README.md). These technical documents are
+implementation notes, not quotations or editorial copy attributed to Jah.

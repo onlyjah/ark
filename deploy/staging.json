@@ -8,14 +8,14 @@
   "version": "0.4.0",
   "repository": "onlyjah/ark",
   "branch": "main",
-  "source_sha": "7ea4a3af5ed3d89b9d77e5ca45840211c1ca5520",
-  "status": "staged_blocked_by_approval",
+  "source_sha": "1641da5ce37f6c1bfbf883ab79c5c0c3897144a4",
+  "status": "legacy_0_4_staged_retry_blocked_go_migration_in_source",
   "soil_auth_mode": "compatible",
   "backup_protection": "unconfigured",
   "automatic_cleanup": false,
   "live_release_replaced": false,
-  "patch_id": "4f346259-4cab-437c-a359-1a9fd2a64a12",
-  "staged_change_count": 17,
+  "patch_id": "d7104d0f-349f-40ed-b45c-da96489f729a",
+  "staged_change_count": 2,
   "previous_live_deployment_id": "7192885e-5750-4fde-8a98-7d28cc08f5cf",
   "checks": {
     "node_passed": 41,
@@ -33,5 +33,19 @@
       "url": "https://github.com/onlyjah/ark/actions/runs/38578385622"
     }
   },
-  "approval_result": "Cancelled — the user did not approve this action. No changes were made."
+  "approval_result": "Cancelled \u2014 the user did not approve this action. No changes were made.",
+  "desired_project_name": "KA$H.app",
+  "project_rename_status": "not_applied_connector_has_no_rename_operation",
+  "go_migration": {
+    "version": "0.5.0-go-preview",
+    "status": "source_only_not_deployed",
+    "dockerfile": "Dockerfile.go",
+    "backend": "Go",
+    "client": "TypeScript React TanStack",
+    "database": "SQLite local or Postgres shared authority; no replicated cluster provisioned",
+    "object_storage": "local filesystem or S3-compatible; no multisite replication provisioned",
+    "local_bridge": "encrypted selected-folder push agent",
+    "old_data_imported": false,
+    "automatic_cleanup": false
+  }
 }

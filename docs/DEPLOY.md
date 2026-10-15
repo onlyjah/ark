@@ -1,3 +1,5 @@
+> Retained TypeScript/Bun profile. For the Go migration, start with [BUILD.md](BUILD.md), [KASH-GO.md](KASH-GO.md), and [GIT-DEPLOY.md](GIT-DEPLOY.md).
+
 # Modular deployment update
 
 Version 0.2.0: [Portalizer and service topology](PORTALIZER.md) is the current service/deployment contract. Run `npm ci` and `npm run build` before starting the full app with Bun 1.4.0. `npm start` runs the compact web app; `npm run start:core` runs only the original room API.

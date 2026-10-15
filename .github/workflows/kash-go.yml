@@ -1,0 +1,49 @@
+# Go migration checks. All database credentials here are isolated test fixtures.
+# No deployment token, production database or production bucket is used.
+name: KA$H.app Go checks
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    services:
+      postgres:
+        image: postgres:18-alpine
+        env:
+          POSTGRES_USER: kash_test
+          POSTGRES_PASSWORD: isolated_test_fixture
+          POSTGRES_DB: kash_test
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U kash_test -d kash_test"
+          --health-interval 5s --health-timeout 5s --health-retries 10
+    env:
+      KASH_TEST_DATABASE_URL: postgres://kash_test:isolated_test_fixture@localhost:5432/kash_test?sslmode=disable
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v6
+        with:
+          go-version-file: backend/go.mod
+          cache-dependency-path: backend/go.sum
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.19.0'
+      - run: make build
+      - run: make test
+      # Use the browser already documented in the GitHub runner image. No
+      # additional Chromium download/install script is part of the app build.
+      - run: node client/test/browser.mjs
+        env:
+          KASH_TEST_CHROMIUM: /usr/bin/google-chrome
+      - run: cd backend && go mod verify
+      - name: Build the documented Go container
+        run: docker build -f Dockerfile.go -t kash-go:test .
+      - name: Cross-compile native server and bridge
+        working-directory: backend
+        run: |
+          for target in linux/amd64 linux/arm64 linux/riscv64 darwin/amd64 darwin/arm64 windows/amd64 windows/arm64; do
+            KASH_TARGET_OS=${target%/*}
+            KASH_TARGET_ARCH=${target#*/}
+            CGO_ENABLED=0 GOOS=$KASH_TARGET_OS GOARCH=$KASH_TARGET_ARCH go build -trimpath -o bin/kash-$KASH_TARGET_OS-$KASH_TARGET_ARCH ./cmd/kash
+          done

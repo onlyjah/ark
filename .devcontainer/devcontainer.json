@@ -1,8 +1,11 @@
 {
-  "name": "KASH operator + Ark",
+  "name": "KA$H.app · Go + TypeScript",
   "image": "node:24.19.0-bookworm",
-  "features": { "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {} },
-  "postCreateCommand": "npm ci --ignore-scripts && npm ci --prefix test/markdown-ui --ignore-scripts",
+  "features": {
+    "ghcr.io/devcontainers/features/go:1": { "version": "1.27.2" },
+    "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
+  },
+  "postCreateCommand": "npm ci --prefix client --ignore-scripts && cd backend && go mod download",
   "forwardPorts": [8080],
   "remoteUser": "node",
   "containerEnv": { "npm_config_update_notifier": "false" }

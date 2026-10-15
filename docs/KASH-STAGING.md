@@ -1,3 +1,5 @@
+> Current migration status: [KA$H.app Go architecture](KASH-GO.md). The legacy 17-change patch below was later applied, but its build failed because Docker VOLUME is unsupported. The subsequent two-change retry at 1641da5 remains staged after automatic approval cancellation. The Go preview has not replaced the live release.
+
 # KASH staging, 0.4.0
 
 Engineering release record. The canonical project is **KASH App**, environment

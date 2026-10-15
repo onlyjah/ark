@@ -1,0 +1,30 @@
+# Local Go migration profile. This never opens data/ark.sqlite.
+# Create ./data-go as your own user before starting. A fresh Railway volume has
+# separate ownership rules described in docs/GIT-DEPLOY.md.
+services:
+  kash:
+    build:
+      context: .
+      dockerfile: Dockerfile.go
+    user: "${KASH_UID:-1000}:${KASH_GID:-1000}"
+    init: true
+    restart: unless-stopped
+    read_only: true
+    tmpfs: [/tmp]
+    ports: ["127.0.0.1:8080:8080"]
+    environment:
+      KASH_DATA: /data/kash-go
+      KASH_APP_ORIGIN: ${KASH_APP_ORIGIN:-http://localhost:8080}
+      KASH_OBJECT_STORE: local
+      SOIL_API_URL: ${SOIL_API_URL:-https://soil.jah.earth/api/v1}
+      SOIL_APP_URL: ${SOIL_APP_URL:-https://soil.jah.earth/app}
+      SOIL_AUDIENCE: kash
+    volumes:
+      - type: bind
+        source: ${KASH_GO_DATA_PATH:-./data-go}
+        target: /data/kash-go
+    mem_limit: 256m
+    cpus: 0.5
+    pids_limit: 100
+    security_opt: [no-new-privileges:true]
+    cap_drop: [ALL]

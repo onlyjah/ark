@@ -9,7 +9,7 @@ if(quotes.size!==catalog.quotes.length) throw new Error('duplicate quote ID');
 let checked=0;
 function walk(dir:string) {
   for(const item of readdirSync(dir,{withFileTypes:true})) {
-    const path=join(dir,item.name);if(item.isDirectory())walk(path);
+    const path=join(dir,item.name);if(item.isDirectory()&&!['node_modules','dist','.git'].includes(item.name))walk(path);
     else if((path.endsWith('.ts') || path.endsWith('.js'))) {
       const source=readFileSync(path,'utf8');
       for(const match of source.matchAll(/\/\/ Jah Noah \[(Q\d+)\]: ("[^\n]+")/g)) {

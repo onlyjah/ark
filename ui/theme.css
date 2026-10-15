@@ -1,0 +1,23 @@
+/* Shared semantic tokens, compatible with shadcn's CSS-variable convention.
+   React, Vue, Solid and custom elements can import this file unchanged.
+   Component markup and event behavior still belong to their own renderer. */
+:root {
+  color-scheme: light dark;
+  --background: light-dark(#f6f3e8,#17251f);
+  --foreground: light-dark(#243e31,#e7eee2);
+  --card: light-dark(#fffdf5,#20322a);
+  --card-foreground: var(--foreground);
+  --popover: var(--card); --popover-foreground: var(--foreground);
+  --primary: light-dark(#355e46,#c2d8aa);
+  --primary-foreground: light-dark(#fffdf5,#1b3023);
+  --secondary: light-dark(#e6e8d7,#304b3b);
+  --secondary-foreground: var(--foreground);
+  --muted: light-dark(#ebe9de,#293b31);
+  --muted-foreground: light-dark(#526654,#b1c2af);
+  --accent: light-dark(#efdfb4,#65552e);
+  --accent-foreground: var(--foreground);
+  --destructive: light-dark(#a3362d,#f0a69e);
+  --border: light-dark(#c9cfbc,#536552);
+  --input: var(--border); --ring: light-dark(#507545,#c2d8aa);
+  --radius: 0.85rem;
+}

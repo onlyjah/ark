@@ -1,0 +1,14 @@
+{
+  "notice": "Public test key and fixed nonce. Never use these for real data.",
+  "test_key": "AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8=",
+  "file": {
+    "name": "fixture.txt",
+    "content_base64": "c2hhcmVkIGZpeHR1cmUgb25seQ==",
+    "media_type": "text/plain"
+  },
+  "envelope": {
+    "protocol": "kash.sealed.v1",
+    "nonce": "AAECAwQFBgcICQoL",
+    "ciphertext": "PCC4eqiA4CGvJ/7zxZwKCK2i/0DSV30fVwmR4HMdX9BgY8vKm+MouheWF4Xr6n5Tpx46/T+e8etc+n9+etHAnZVt+0fx/QQMeTDDD7D7d5hdqPNAAgYrHNKN8q0RnpvwZGoABp2qFOhqO+vD/OQjgA=="
+  }
+}
