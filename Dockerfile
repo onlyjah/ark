@@ -23,5 +23,4 @@ USER root
 ENV ARK_DATA=/data ARK_VOLUME_MOUNT_PATH=/data PORT=8080
 HEALTHCHECK --interval=30s --timeout=5s --start-period=20s CMD bun -e 'const r=await fetch("http://127.0.0.1:8080/health");process.exit(r.ok?0:1)'
 EXPOSE 8080
-VOLUME ["/data"]
 CMD ["bun", "/app/runtime.mjs"]
